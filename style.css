@@ -1,0 +1,33 @@
+body{
+    margin:8px;
+    background-size: cover;
+}
+
+h3
+{
+    margin-top: 60px;
+    margin-left: 160px;
+    font-size: 15px;
+    color:black;
+    width: 70%;
+    box-shadow: black;
+}
+
+h4{
+    box-shadow: skyblue;
+    font-size: 30px;
+}
+
+canvas{
+    border:2px dotted black;
+    border-radius: 20px;
+    animation-name: color;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    margin-top: 50px;
+}
+
+@keyframes color {
+    from {box-shadow: 2px 2px 40px purple;}
+    to{box-shadow: 2px 2px 40px red;}
+}
