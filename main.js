@@ -1,6 +1,7 @@
 leftWristX = 0;
 leftWristY = 0;
 scoreLeftWrist = 0;
+scoreRightWrist = 0;
 rightWristX = 0;
 rightWristY = 0;
 song_status = "";
@@ -28,6 +29,9 @@ function gotPoses(results) {
 
         scoreLeftWrist = results[0].pose.keypoints[9].score;
         console.log("scoreLeftWrist = " + scoreLeftWrist);
+
+        scoreRightWrist = results[0].pose.keypoints[10].score;
+        console.log("scoreRightWrist = " + scoreRightWrist);
 
         rightWristX = results[0].pose.rightWrist.x;
         rightWristY = results[0].pose.rightWrist.y;
@@ -66,6 +70,23 @@ function draw() {
          {
           song1.play();
           document.getElementById("song_name").innerHTML = "Dynamite song is playing.";
+        }
+    }
+    song_status = song2.isPlaying() ;
+
+    fill("#FF0000");
+    stroke("#FF0000");
+
+    if(scoreRightWrist > 0.2)
+    {
+        circle(rightWristX, rightWristY, 20);
+        
+        song1.stop();
+
+        if(song_status == false)
+         {
+          song2.play();
+          document.getElementById("song_name").innerHTML = "Butter song is playing.";
         }
     }
 }
